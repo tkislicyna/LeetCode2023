@@ -100,8 +100,13 @@ public class SolutionTest {
 
     @Test
     void test16() {
-        int result = uut.myAtoi("000000000000001");
-        Assertions.assertEquals(1, result);
+        var timeStart = System.currentTimeMillis();
+        int result = uut.myAtoi("0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001199999991");
+        var timeEnd = System.currentTimeMillis();
+        Assertions.assertEquals(1199999991, result);
+
+
+        System.out.println(timeEnd - timeStart);
     }
 
     @Test
@@ -109,5 +114,19 @@ public class SolutionTest {
         int result = uut.myAtoi("   +0 123");
         Assertions.assertEquals(0, result);
     }
+
+    @Test
+    void test18() {
+        int result = uut.myAtoi("2147483800");
+        Assertions.assertEquals(2147483647, result);
+    }
+
+    @Test
+    void test19() {
+        int result = uut.myAtoi("1095502006p8");
+        Assertions.assertEquals(1095502006, result);
+    }
+
+
 
 }
